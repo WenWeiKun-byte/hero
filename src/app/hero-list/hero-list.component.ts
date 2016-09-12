@@ -21,6 +21,30 @@ export class HeroListComponent implements OnInit {
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    this.heroService.create(name)
+      .then(hero => {
+        this.heroes.push(hero); //create will return the new created hero, update the current list
+        this.selectedHero = null;
+      });
+  }
+
+  delete(hero: Hero): void {
+    this.heroService
+      .delete(hero.id)
+      .then(() => {
+        this.heroes = this.heroes.filter(h => h !== hero);
+        if (this.selectedHero === hero) {
+          this.selectedHero = null;
+        }
+      });
+  }
+
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
