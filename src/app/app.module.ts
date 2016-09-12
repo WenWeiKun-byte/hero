@@ -10,16 +10,20 @@ import {routing} from "./app.routing";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpModule} from "@angular/http";
 
+import './rxjs-extensions';
+
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
 import { InMemoryDataService }  from './services/in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroDetailComponent,
     HeroListComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     routing,
