@@ -5,13 +5,19 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail';
 import {HeroService} from "./services/hero.service";
+import { HeroListComponent } from './hero-list/hero-list.component';
+import {routing} from "./app.routing";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroListComponent,
+    DashboardComponent
   ],
   imports: [
+    routing,
     BrowserModule,
     CommonModule,
     FormsModule
